@@ -20,19 +20,7 @@ let portalQuestionConfigDTOList = [
 				"title": "电脑维修2"
 			}
 		]
-	},
-	{
-		"title": '其他',
-		"portalQuestionDetailConfigDTOList": [
-			{
-				"customUrl": "www.aa.com",
-				"showFlag": null,
-				"showOrder": 0,
-				"title": "电脑维修3"
-			}
-		]
-	},
-
+	}
 ]
 
 let result = [];

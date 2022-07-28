@@ -4,34 +4,34 @@ let portalAdminister = [
 			{
 				children: [
 					{
-						label: "镜岩",
+						label: "小明",
 						value: "01380352611209037"
 					},
 					{
-						label: "陈孝敬",
+						label: "小红",
 						value: "025609424537722615"
 					}
 				],
 				disabled: true,
-				label: "开发测试人员",
+				label: "班主任老张",
 				selectable: false,
 				value: "515794864"
 			},
 			{
-				label: "叶晟.战破",
+				label: "小白",
 				value: "0116415710-843089919"
 			},
 			{
-				label: "胡玉兰",
+				label: "小绿",
 				value: "01195630266932644008"
 			},
 			{
-				label: "陈孝敬",
+				label: "小黑",
 				value: "025609424537722615"
 			}
 		],
 		disabled: true,
-		label: "聚橙体验组织1",
+		label: "一年级二班",
 		selectable: false,
 		value: "1"
 	}
@@ -50,7 +50,6 @@ function flatLoop(item) {
 			}
 			flatLoop(Object.values(x))
 		}
-		
 	})
 }
 flatLoop(portalAdminister)
@@ -61,11 +60,12 @@ let newAdminsters = keyArr.map((label, i) => (
 		value: nameArr[i]
 	}
 ))
-console.log('newAdminsters', newAdminsters)
+console.log('处理后的数组对象', newAdminsters)
+// 将需要查找的值转换为字符串数组
 let find = findVal.split(",")
-console.log(find)
 const filterByKey = (find = [], newAdminsters = []) => {
 	let res = [];
+	// 筛选
 	res = newAdminsters.filter(el => {
 		const { value } = el;
 		const index = find.indexOf(value);
@@ -73,7 +73,7 @@ const filterByKey = (find = [], newAdminsters = []) => {
 	});
 	return res;
 };
-// 筛选后的数组对象
+// 返回筛选后的数组对象
 let arrAdminster = filterByKey(find, newAdminsters);
 console.log('arrAdminster', arrAdminster)
 for (let i = 0; i < arrAdminster.length; i++) {
@@ -81,11 +81,11 @@ for (let i = 0; i < arrAdminster.length; i++) {
 		if (arrAdminster[i].value == arrAdminster[j].value) {
 			arrAdminster.splice(j, 1);
 			j--;
-		};
-	};
-};
-console.log("去重后的数组：",arrAdminster)
+		}
+	}
+}
+console.log("去重后的数组：", arrAdminster)
 let portalAdministerId = arrAdminster.map(item => item.value).join(",")
 let portalAdministerName = arrAdminster.map(item => item.label).join(",")
 
-console.log(portalAdministerId, portalAdministerName)
+console.log("筛选之后的结果：", portalAdministerId, portalAdministerName)

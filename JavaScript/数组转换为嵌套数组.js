@@ -19,4 +19,4 @@ let newArr=arr.map(item=>{
 		}
 	}
 })
-console.log(newArr)
+console.log("嵌套后的数组对象：",newArr)

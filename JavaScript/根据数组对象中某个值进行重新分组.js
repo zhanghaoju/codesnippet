@@ -33,18 +33,19 @@ list.map(item => {
 	m.set(item.titleTag, [...(m.get(item.titleTag) || ''), item.customUrl])
 })
 const newList = Object.fromEntries(m.entries())
-console.log(newList)
+console.log("根据titleTag值筛选出字段curstomUrl值：", newList)
+// 进行遍历
 for (let key in newList) {
 	if (key === Object.keys(newList)[0]) {
-		console.log("热门的内容：", newList[key])
+		console.log("拿到热门的内容包含的值：", newList[key])
 		const obj = newList[key]
 		let newObj = Object.keys(obj).map(e => {
 			return {
 				title: obj[e]
 			}
 		})
-		console.log('newObj', newObj)
+		console.log('重新组合后的值', newObj)
 	} else {
-		console.log("其他的内容：", newList[key])
+		console.log("其他的内容的值：", newList[key])
 	}
 }
